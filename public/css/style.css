@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css?family=Comfortaa|Righteous');
+
+h1 {
+    font-family: 'Righteous', cursive;
+    background: antiquewhite;
+    margin:0;
+    margin-bottom: .5em;
+    padding: 1em;
+    text-align: center;
+  }
+
+img {
+	width: 200px;
+}
+
+body{
+	background-color: rgb(194, 202, 202);
+	text-align: center;
+}
+
+div{
+	display: inline-block;
+	background-color: cornflowerblue;
+	padding: 15px;
+}
+
+li {
+	display: inline-block;
+	list-style: none;
+	background-color: yellowgreen;
+	padding: 15px;
+	margin: 15px;
+}
+
+button {
+	margin: 15px;
+}
+
+a {
+	color: black;
+}
+
+a:hover {
+    color: ghostwhite;
+  }

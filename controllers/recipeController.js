@@ -68,4 +68,18 @@ router.get('/:id', (req, res) => {
 	}
 })
 
+//post
+router.post('/', (req, res) => {
+    console.log(req.body)
+    Recipe.create(req.body, (error, createdRecipe) => {
+        if (error) {
+            console.log(error)
+            res.send(error)
+        } else {
+            console.log(createdRecipe)
+            res.redirect('/recipes')
+        }
+    })
+})
+
 module.exports = router

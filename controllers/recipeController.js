@@ -66,21 +66,6 @@ router.get('/:id', (req, res) => {
 	}
 })
 
-
-
-
-//post
-router.post('/', (req, res) => {
-    Recipe.create(req.body, (error, createdRecipe) => {
-        if (error) {
-            console.log(error)
-            res.send(error)
-        } else {
-            res.redirect('/recipes')
-        }
-    })
-})
-
 //edit
 
 router.get('/:id/edit', (req, res) => {
@@ -109,6 +94,30 @@ router.put('/:id', (req, res) => {
     catch (err) {
         res.send(err.message)
     }
+})
+
+
+//post
+router.post('/', (req, res) => {
+    Recipe.create(req.body, (error, createdRecipe) => {
+        if (error) {
+            console.log(error)
+            res.send(error)
+        } else {
+            res.redirect('/recipes')
+        }
+    })
+})
+
+//delete
+router.delete('/:id', (req, res) => {
+    Recipe.findByIdAndDelete(req.params.id, (error, deletedRecipe) => {
+        if (error) {
+            res.send(error)
+        } else {
+            res.redirect('/recipes')
+        }
+    })
 })
 
 module.exports = router

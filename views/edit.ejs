@@ -5,8 +5,9 @@
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <title>Document</title>
 </head>
-<body>
+<body style="background-color: aqua;">
     <h1>Edit Recipe</h1>
+    <div style="background-color: blueviolet;">
 	<form action="/recipes/<%=recipe.id%>?_method=PUT" method="POST">
 		<label for="name">Name:
 			<input type="text" name="name" value="<%=recipe.name%>">
@@ -17,13 +18,11 @@
 		<label for="image">Image:
 			<input type="text" name="image" value="<%=recipe.image%>">
 		</label><br>
-		<label for="ingredients">Ingredients:
-			<input type="text" name="ingredients" required="true" value="<%=recipe.ingredients%>">
-		</label><br>
-		<label for="recipe"></label>Recipe:
-			<input type="text" name="recipe" required="true" value="<%=recipe.recipe%>">
-		</label><br>
+            Ingredients: <textarea name="ingredients" cols="30" rows="10"><%=recipe.ingredients%></textarea>
+		<br>
+        Recipe: <textarea name="recipe" id="" cols="30" rows="10"><%=recipe.ingredients%></textarea>
 		<button type="submit">Update Recipe</button>
 	</form>
+</div>
 </body>
 </html>

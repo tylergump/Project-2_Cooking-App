@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Edit Recipe</h1>
+	<form action="/recipes/<%=recipe.id%>?_method=PUT" method="POST">
+		<label for="name">Name:
+			<input type="text" name="name" value="<%=recipe.name%>">
+		</label><br>
+		<label for="author">Author:
+			<input type="text" name="author" value="<%=recipe.author%>">
+		</label><br>
+		<label for="image">Image:
+			<input type="text" name="image" value="<%=recipe.image%>">
+		</label><br>
+		<label for="ingredients">Ingredients:
+			<input type="text" name="ingredients" required="true" value="<%=recipe.ingredients%>">
+		</label><br>
+		<label for="recipe"></label>Recipe:
+			<input type="text" name="recipe" required="true" value="<%=recipe.recipe%>">
+		</label><br>
+		<button type="submit">Update Recipe</button>
+	</form>
+</body>
+</html>

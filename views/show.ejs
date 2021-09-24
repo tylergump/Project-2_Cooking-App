@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
     <title>Document</title>
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -14,12 +12,14 @@
     
 </head>
 <body>
+    <a href="/recipes">Back to Recipe List</a>
+	<h1><%=recipe.name%></h1>
 <div>
-    <h1><%= recipe.name %></h1>
     <h2> By <%=recipe.author%></h2>
     <img src="<%= recipe.image %>">
     <h2>Ingredients: </h2><p><%= recipe.ingredients %></p>
     <h2>Recipe: </h2> <p> <%= recipe.recipe %></p>
 </div>
+<a href="/recipes/<%= recipe.id %>/edit">Edit Recipe</a>
 </body>
 </html>

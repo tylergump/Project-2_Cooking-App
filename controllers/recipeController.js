@@ -32,7 +32,6 @@ router.get('/seed', async (req, res) => {
 
 // INDEX
 router.get('/', (req, res) => {
-console.log('wtf')
     try{
     Recipe.find({}, (err, allRecipes) => {
         err ? res.send(err)
@@ -56,7 +55,6 @@ router.get('/new', (req, res) => {
 router.get('/:id', (req, res) => {
 	try{
 		Recipe.findById(req.params.id, (err, foundRecipe) => {
-			console.log(foundRecipe);
 			err ? res.send(err)
 			: res.render('show.ejs', {
 				recipe: foundRecipe
@@ -68,18 +66,49 @@ router.get('/:id', (req, res) => {
 	}
 })
 
+
+
+
 //post
 router.post('/', (req, res) => {
-    console.log(req.body)
     Recipe.create(req.body, (error, createdRecipe) => {
         if (error) {
             console.log(error)
             res.send(error)
         } else {
-            console.log(createdRecipe)
             res.redirect('/recipes')
         }
     })
+})
+
+//edit
+
+router.get('/:id/edit', (req, res) => {
+    try{
+        Recipe.findById(req.params.id, (err, foundRecipe) => {
+            err ? res.send(err)
+            : res.render('edit.ejs', {
+                recipe: foundRecipe
+            })
+        })
+    }
+    catch(err) {
+        res.send(err.message)
+    }
+})
+
+//update
+
+router.put('/:id', (req, res) => {
+    try {
+        Recipe.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedRecipe) => {
+            err ? res.send(err)
+            : res.redirect('/recipes/' + req.params.id)
+        })
+    }
+    catch (err) {
+        res.send(err.message)
+    }
 })
 
 module.exports = router

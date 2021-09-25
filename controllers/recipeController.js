@@ -120,4 +120,20 @@ router.delete('/:id', (req, res) => {
     })
 })
 
+//about 
+
+router.get('/recipes/about', (req, res) => {
+    try{
+    Recipe.find({}, (err, allRecipes) => {
+        err ? res.send(err)
+        : res.render('about.ejs', {
+            recipes: allRecipes
+        })
+    })
+} catch (err) {
+    res.send(err.message)
+    console.log(err.message)
+}
+})
+
 module.exports = router
